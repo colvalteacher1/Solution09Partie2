@@ -1,0 +1,28 @@
+@Solution09Partie2_HostAddress = http://localhost:5016
+
+GET {{Solution09Partie2_HostAddress}}/api/customers/all
+Accept: application/json
+
+###
+GET {{Solution09Partie2_HostAddress}}/api/customers/one/10
+Accept: application/json
+
+###
+POST {{Solution09Partie2_HostAddress}}/api/customers
+Content-Type: application/json
+{
+  "customerName": "Test 2",
+  "city": "Montreal",
+  "creationDate": "2026-11-09"
+}
+
+
+
+###
+PUT {{Solution09Partie2_HostAddress}}/api/customers/10
+Content-Type: application/json
+{
+  "customerName": "Test 10",
+  "city": "Valleyfield",
+  "creationDate": "2026-11-09"
+}
