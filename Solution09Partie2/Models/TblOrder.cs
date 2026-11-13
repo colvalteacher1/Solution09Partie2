@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Solution09Partie2.Models;
 
 public partial class TblOrder
 {
+    [Key]
     public int OrderId { get; set; }
 
     public int? CustomerId { get; set; }
