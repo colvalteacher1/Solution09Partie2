@@ -4,25 +4,29 @@ GET {{Solution09Partie2_HostAddress}}/api/customers/all
 Accept: application/json
 
 ###
-GET {{Solution09Partie2_HostAddress}}/api/customers/one/10
+GET {{Solution09Partie2_HostAddress}}/api/customers/one/2
 Accept: application/json
 
 ###
 POST {{Solution09Partie2_HostAddress}}/api/customers
 Content-Type: application/json
 {
-  "customerName": "Test 2",
+  "customerName": "Test 10",
   "city": "Montreal",
-  "creationDate": "2026-11-09"
+  "creationDate": "2026-11-13"
 }
 
 
 
 ###
-PUT {{Solution09Partie2_HostAddress}}/api/customers/10
+PUT {{Solution09Partie2_HostAddress}}/api/customers/11
 Content-Type: application/json
 {
-  "customerName": "Test 10",
+  "customerName": "Test 11",
   "city": "Valleyfield",
   "creationDate": "2026-11-09"
 }
+
+
+###
+DELETE {{Solution09Partie2_HostAddress}}/api/customers/9

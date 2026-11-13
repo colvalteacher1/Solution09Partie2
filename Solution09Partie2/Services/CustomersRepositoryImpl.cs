@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Castle.Core.Resource;
+using Microsoft.EntityFrameworkCore;
 using Solution09Partie2.Models;
 
 namespace Solution09Partie2.Services
@@ -22,19 +23,26 @@ namespace Solution09Partie2.Services
             return context.TblCustomers.FirstOrDefault( c => c.CustomerId == id);
         }
 
-        public TblCustomer Add(TblCustomer customer)
+        public TblCustomer? Add(TblCustomer customer)
         {
             var newCustromer = context.TblCustomers.Add(customer).Entity; //Entity retourne toute le ressource nouvellement créée
             context.SaveChanges();
             return newCustromer;
         }
 
-        public TblCustomer DeleteById(int id)
+        public TblCustomer? DeleteById(int id)
         {
-            throw new NotImplementedException();
+            var existedCustomer = context.TblCustomers.FirstOrDefault(c => c.CustomerId == id);
+            if (existedCustomer != null)
+            {
+                context.TblCustomers.Remove(existedCustomer);
+                context.SaveChanges();
+                return existedCustomer;
+            }
+            return null;
         }
        
-        public TblCustomer Update(TblCustomer customer)
+        public TblCustomer? Update(TblCustomer customer)
         {
             var existedCustomer = context.TblCustomers.FirstOrDefault(c => c.CustomerId == customer.CustomerId);
             if (existedCustomer != null)

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Castle.Core.Resource;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Solution09Partie2.Dtos;
@@ -58,8 +59,34 @@ namespace Solution09Partie2.Controllers
        
            tblcustomer.CustomerId = id;
            var updateCustomer = customersRepository.Update(tblcustomer);
+            CustomerDto customerDto = new CustomerDto()
+            {
+                CustomerId = updateCustomer.CustomerId,
+                CustomerName = updateCustomer.CustomerName,
+                City = updateCustomer.City,
+                CreationDate = updateCustomer.CreationDate
+            };
 
-            return Ok(updateCustomer);
+            return Ok(customerDto);
+        }
+
+        // DELETE: api/TblCustomer/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteTblCustomer([FromRoute] int id)
+        {
+            if (customersRepository.GetById(id) == null)
+                return NotFound($"Client avec l'id {id} introuvable");
+
+            var DeletedCustomer = customersRepository.DeleteById(id);
+
+            CustomerDto customerDto = new CustomerDto()
+            {
+                CustomerId = DeletedCustomer.CustomerId,
+                CustomerName = DeletedCustomer.CustomerName,
+                City = DeletedCustomer.City,
+                CreationDate = DeletedCustomer.CreationDate
+            };
+            return Ok(customerDto);
         }
 
 

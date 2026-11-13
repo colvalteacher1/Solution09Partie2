@@ -6,9 +6,9 @@ namespace Solution09Partie2.Services
     {
         List<TblCustomer> GetAll();
         TblCustomer? GetById(int id);
-        TblCustomer Add(TblCustomer customer);
-        TblCustomer Update(TblCustomer customer);
-        TblCustomer DeleteById(int id);
+        TblCustomer? Add(TblCustomer customer);
+        TblCustomer? Update(TblCustomer customer);
+        TblCustomer? DeleteById(int id);
 
     }
 }
