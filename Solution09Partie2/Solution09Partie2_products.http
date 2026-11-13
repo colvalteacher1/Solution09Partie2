@@ -1,0 +1,31 @@
+@Solution09Partie2_HostAddress = http://localhost:5016
+
+###
+GET {{Solution09Partie2_HostAddress}}/api/products/all
+Accept: application/json
+
+###
+GET {{Solution09Partie2_HostAddress}}/api/products/one/3
+Accept: application/json
+
+###
+POST {{Solution09Partie2_HostAddress}}/api/products
+Content-Type: application/json
+{
+  "productName": "Test product",
+  "category": "Electronics",
+  "price": 99.99,
+  "stockQuantity": 10,
+  "description": "Test ajout de nouveau produit"
+}
+
+###
+PUT {{Solution09Partie2_HostAddress}}/api/products/2
+Content-Type: application/json
+{
+  "productName": "Smartphones",
+  "stockQuantity": 70
+}
+
+###
+DELETE {{Solution09Partie2_HostAddress}}/api/products/11

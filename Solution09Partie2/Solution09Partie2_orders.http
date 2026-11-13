@@ -1,0 +1,16 @@
+@Solution09Partie2_HostAddress = http://localhost:5016
+
+POST {{Solution09Partie2_HostAddress}}/api/orders
+Content-Type: application/json
+{
+  "CustomerId": "1",
+  "ProductId": "2",
+  "OrderDate": "2026-11-13",
+  "OrderQuantity": 5
+}
+
+###
+
+GET {{Solution09Partie2_HostAddress}}/api/orders/customer/3
+Accept: application/json
+

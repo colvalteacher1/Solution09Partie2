@@ -21,6 +21,9 @@ builder.Services.AddDbContext<ShoppingDbContext>(
 //Ajouter un servcie CustomerRep injectable
 builder.Services.AddScoped<ICustomersRepository, CustomersRepositoryImpl>();
 
+//Ajouter un servcie OrderRepo injectable
+builder.Services.AddScoped<IOrdersRepository, OrdersRepositoryImpl>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
