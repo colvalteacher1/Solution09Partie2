@@ -1,4 +1,4 @@
-@Solution09Partie2_HostAddress = http://localhost:5016
+@Solution09Partie2_HostAddress = http://localhost:5000
 
 GET {{Solution09Partie2_HostAddress}}/api/customers/all
 Accept: application/json
@@ -12,9 +12,9 @@ Accept: application/json
 POST {{Solution09Partie2_HostAddress}}/api/customers
 Content-Type: application/json
 {
-  "customerName": "Test 10",
+  "customerName": "Test 13",
   "city": "Montreal",
-  "creationDate": "2026-11-13"
+  "creationDate": "2026-11-16"
 }
 
 ###

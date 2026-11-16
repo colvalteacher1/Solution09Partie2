@@ -14,7 +14,7 @@ builder.Services.AddOpenApi();
 //ajouter un service de base de données
 builder.Services.AddDbContext<ShoppingDbContext>(
     options =>
-     options.UseMySql("name=ConnectionStrings:AlwaysDataConnection", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.11.14-mariadb"))
+     options.UseMySql("name=ConnectionStrings:ShoppingDbContext", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.11.14-mariadb"))
             .UseLazyLoadingProxies()
      );
 
